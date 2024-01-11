@@ -60,7 +60,7 @@ public class SquakeClientPlayer
 		double d1 = player.getY();
 		double d2 = player.getZ();
 
-		if((player.getAbilities().flying || player.isFallFlying()) && player.getVehicle() == null)
+		if((player.getAbilities().flying || player.isSwimming() || player.isFallFlying()) && player.getVehicle() == null)
 			return false;
 		else
 			didQuakeMovement = quake_moveEntityWithHeading(player, sidemove, upmove, forwardmove);
@@ -228,9 +228,10 @@ public class SquakeClientPlayer
 				0.0F
 		};
 
+		f3 = Mth.sqrt(f3);
+
 		if(f3 >= 1.0E-4F)
 		{
-			f3 = Mth.sqrt(f3);
 
 			if(f3 < 1.0F)
 			{
